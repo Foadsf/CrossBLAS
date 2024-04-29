@@ -17,10 +17,11 @@ endif()
 
 # Set the Fortran compilation flags depending on the compiler
 if(CMAKE_Fortran_COMPILER_ID MATCHES "GNU")
-  set(CMAKE_Fortran_FLAGS "${CMAKE_Fortran_FLAGS} -O3 -Wall -Wextra")
+  set(CMAKE_Fortran_FLAGS "${CMAKE_Fortran_FLAGS} -O3 -w")
 elseif(CMAKE_Fortran_COMPILER_ID MATCHES "Intel")
   set(CMAKE_Fortran_FLAGS
-      "${CMAKE_Fortran_FLAGS} /Qipo /MP /Qdiag-disable:10448")
+      "${CMAKE_Fortran_FLAGS} /Qipo /MP /Qdiag-disable:10448 /Qdiag-disable:warn"
+  )
 endif()
 
 # Add the CMake directory for custom CMake modules

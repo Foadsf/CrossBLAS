@@ -55,7 +55,7 @@ if(_is_coverage_build)
   find_package(codecov)
 endif()
 
-include(CTest)
+# include(CTest)
 enable_testing()
 add_subdirectory(tests)
 
@@ -312,10 +312,3 @@ install(FILES "${PROJECT_BINARY_DIR}/${BLASLIB}-config.cmake"
 # Install the export set for the build tree
 export(EXPORT ${BLAS_INSTALL_EXPORT_NAME}
        FILE "${PROJECT_BINARY_DIR}/${BLASLIB}-targets.cmake")
-
-# Add custom targets for building test executables
-add_custom_target(single DEPENDS xblat1s xblat2s xblat3s)
-add_custom_target(double DEPENDS xblat1d xblat2d xblat3d)
-add_custom_target(complex DEPENDS xblat1c xblat2c xblat3c)
-add_custom_target(complex16 DEPENDS xblat1z xblat2z xblat3z)
-add_custom_target(build_all DEPENDS single double complex complex16)
